@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: Install and Build
+      - name: Install pnpm
         run: |
           npm ci
           npm run build
+      - name: Install and Build
+        run: npm install -g pnpm
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
