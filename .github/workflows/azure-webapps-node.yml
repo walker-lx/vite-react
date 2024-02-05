@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install and Build
         run: |
-          npm ci
-          npm run build
+          pnpm ci
+          pnpm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
