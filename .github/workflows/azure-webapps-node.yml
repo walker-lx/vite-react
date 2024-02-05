@@ -12,17 +12,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+      - name: Install pnpm
+        run: npm install -g pnpm
       - name: Install and Build
         run: |
-          npm ci
-          npm run build
+          pnpm i
+          pnpm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           folder: dist
-          # clean: true
+          clean: true
           # force: true
         # env:
         #   folder: dist
